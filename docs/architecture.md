@@ -312,14 +312,22 @@ Completed:
 - AWS Budget alert setup
 - S3 bucket creation
 - Raw Superstore dataset upload to S3
+- AWS Glue database creation
+- AWS Glue Crawler creation and execution
+- Glue Data Catalog table creation
 
 Current S3 dataset path:
 
 ```text
 s3://retail-data-engineering-project-varun-2026/raw/superstore/superstore_sales.csv
 
-Next step:
+Current Glue Catalog table:
 
-* Configure AWS Glue Crawler
-* Create Glue Data Catalog table
+retail_data_catalog.raw_superstore
+```
+
+## Next step:
+
+* Install AWS CLI locally
+* Configure local AWS credentials sagely
 * Build Python ingestion from S3 to PostgreSQL

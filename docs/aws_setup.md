@@ -104,8 +104,11 @@ Completed AWS setup:
 
 - Created AWS Budget alert for cost monitoring
 - Created S3 bucket for the project
-- Created raw data lake folde structure
+- Created raw data lake folder structure
 - Uploaded the raw Superstore sales dataset to S3
+- Created AWS Glue database
+- Created and ran AWS Glue Crawler
+- Created Glue Data Catalog table for raw Superstore data
 
 ## Created AWS Resources
 
@@ -114,17 +117,23 @@ Completed AWS setup:
 | S3 Bucket | retail-data-engineering-project-varun-2026 |
 | Raw Zone Prefix | raw/superstore/ |
 | Raw Dataset Object | raw/superstore/superstore_sales.csv |
+| Glue Database | retail_data_catalog |
+| Glue Crawler | superstore_raw_data_crawler |
+| Glue Catalog Table | raw_superstore |
 
 ## S3 Dataset Path
 
 ```text
 s3://retail-data-engineering-project-varun-2026/raw/superstore/superstore_sales.csv
 
-## Next AWS Steps
+Glue Catalog Reference
 
-Planned next steps:
-1. Configure AWS Glue Crawler
-2. Create Glue Data Catlog table
-3. Install AWS CLI locally
-4. Configure Python access to S3
-5. Build ingestion pipeline from S3 to PostgreSQL
+retail_data_catalog.raw_superstore
+```
+
+## Next AWS steps
+
+1. Install AWS CLI locally
+2. Configure local AWS credentials safely
+3. Install boto3
+4. Build Python ingestion pipeline from S3 to PostgreSQ
