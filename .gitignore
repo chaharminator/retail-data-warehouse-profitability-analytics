@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data files that may be large
+*.xlsx
+
+# Power BI files
+*.pbix
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# dbt
+target/
+dbt_packages/
+logs/
