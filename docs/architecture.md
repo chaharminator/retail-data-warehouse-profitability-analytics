@@ -68,7 +68,7 @@ S3 will act as the cloud raw data lake zone, where source data is stored before 
 Planned S3 structure:
 
 ```text
-s3://retail-data-engineering-project/raw/superstore/superstore_sales.csv
+s3://retail-data-engineering-project-varun-2026/raw/superstore/superstore_sales.csv
 ```
 
 In a real company, this layer helps keep source data centralized, durable, and accessible for downstream pipelines.
@@ -304,14 +304,22 @@ Cost-control approach:
 
 Completed:
 
-* Project folder structure
-* GitHub repository setup
-* Raw dataset download
-* Source data profiling
-* Business requirements documentation
+- Project folder structure
+- GitHub repository setup
+- Raw dataset download
+- Source data profiling
+- Business requirements documentation
+- AWS Budget alert setup
+- S3 bucket creation
+- Raw Superstore dataset upload to S3
+
+Current S3 dataset path:
+
+```text
+s3://retail-data-engineering-project-varun-2026/raw/superstore/superstore_sales.csv
 
 Next step:
 
-* Configure AWS S3 as the raw data lake zone
-* Upload the raw Superstore CSV file to S3
-* Document the S3 folder structure
+* Configure AWS Glue Crawler
+* Create Glue Data Catalog table
+* Build Python ingestion from S3 to PostgreSQL
