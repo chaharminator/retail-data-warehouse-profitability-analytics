@@ -63,10 +63,11 @@ The business needs a reliable data warehouse that can support analysis of:
 * Git
 * GitHub
 * VS Code
+* dbt Core
+* dbt-postgres
 
 Planned next tools:
 
-* dbt Core
 * Prefect or Airflow
 * Power BI
 
@@ -147,6 +148,43 @@ Tables:
 * `marts.dim_date`
 
 The grain of `marts.fact_sales` is one row per sales transaction line.
+
+---
+
+## dbt Transformation Layer
+
+dbt Core was added to manage SQL transformations in a modular and production-style workflow.
+
+The dbt project is located at:
+
+- `dbt/retail_dbt/`
+
+dbt is used to build:
+
+- Staging model: `stg_superstore_sales`
+- Dimension models:
+  - `dim_customer`
+  - `dim_product`
+  - `dim_region`
+  - `dim_date`
+- Fact model:
+  - `fact_sales`
+
+dbt features used:
+
+- Source definitions
+- Model references using `ref()`
+- Source references using `source()`
+- Table materializations
+- Custom schema macro
+- Data tests
+- dbt documentation generation
+
+All dbt tests passed successfully:
+
+- 28 tests passed
+- 0 failures
+- 0 errors
 
 ---
 
@@ -377,11 +415,12 @@ Completed:
 * SQL validation checks
 * Business analysis SQL queries
 * Business insights report
+* Converted SQL transformations into dbt models
+* Added dbt tests
+* Generated dbt documentation
 
 Planned next steps:
 
-* Convert SQL transformations into dbt models
-* Add dbt tests and documentation
 * Add orchestration using Prefect or Airflow
 * Build Power BI dashboard
 * Add dashboard screenshots to GitHub
