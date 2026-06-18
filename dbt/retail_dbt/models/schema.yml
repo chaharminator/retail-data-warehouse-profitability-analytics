@@ -1,0 +1,128 @@
+version: 2
+
+models:
+  - name: stg_superstore_sales
+    description: Cleaned staging model created from the raw Superstore sales table.
+    columns:
+      - name: row_id
+        description: Unique row identifier from the source dataset.
+        tests:
+          - not_null
+          - unique
+
+      - name: order_id
+        description: Source order identifier.
+        tests:
+          - not_null
+
+      - name: order_date
+        description: Date when the order was placed.
+        tests:
+          - not_null
+
+      - name: ship_date
+        description: Date when the order was shipped.
+        tests:
+          - not_null
+
+      - name: customer_id
+        description: Source customer identifier.
+        tests:
+          - not_null
+
+      - name: product_id
+        description: Source product identifier.
+        tests:
+          - not_null
+
+      - name: sales
+        description: Sales revenue for the transaction line.
+        tests:
+          - not_null
+
+      - name: profit
+        description: Profit for the transaction line.
+        tests:
+          - not_null
+
+  - name: dim_customer
+    description: Customer dimension table with one row per customer.
+    columns:
+      - name: customer_key
+        description: Surrogate key for the customer dimension.
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        description: Source customer identifier.
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_product
+    description: Product dimension table with one row per product.
+    columns:
+      - name: product_key
+        description: Surrogate key for the product dimension.
+        tests:
+          - not_null
+          - unique
+
+      - name: product_id
+        description: Source product identifier.
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_region
+    description: Region dimension table with one row per unique geographic location.
+    columns:
+      - name: region_key
+        description: Surrogate key for the region dimension.
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_date
+    description: Date dimension table with one row per calendar date.
+    columns:
+      - name: date_day
+        description: Calendar date.
+        tests:
+          - not_null
+          - unique
+
+  - name: fact_sales
+    description: Sales fact table with one row per sales transaction line.
+    columns:
+      - name: sales_key
+        description: Sales transaction line key based on source row_id.
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_key
+        description: Foreign key to dim_customer.
+        tests:
+          - not_null
+
+      - name: product_key
+        description: Foreign key to dim_product.
+        tests:
+          - not_null
+
+      - name: region_key
+        description: Foreign key to dim_region.
+        tests:
+          - not_null
+
+      - name: sales
+        description: Sales revenue for the transaction line.
+        tests:
+          - not_null
+
+      - name: profit
+        description: Profit for the transaction line.
+        tests:
+          - not_null

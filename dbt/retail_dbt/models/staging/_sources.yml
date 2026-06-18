@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw
+    database: retail_dw_db
+    schema: raw
+    tables:
+      - name: superstore_sales
+        description: Raw Superstore sales data loaded from AWS S3 into PostgreSQL.

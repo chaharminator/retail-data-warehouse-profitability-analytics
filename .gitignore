@@ -25,3 +25,14 @@ Thumbs.db
 target/
 dbt_packages/
 logs/
+.user.yml
+profiles.yml
+
+# Local databases / temp files
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment files
+.env.*
+!.env.example
