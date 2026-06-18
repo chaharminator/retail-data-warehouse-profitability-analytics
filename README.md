@@ -307,6 +307,63 @@ Business insight report:
 
 ---
 
+## Power BI Dashboard
+
+A Power BI dashboard was created using the PostgreSQL mart layer.
+
+The dashboard connects to the star schema tables:
+
+* `marts.fact_sales`
+* `marts.dim_customer`
+* `marts.dim_product`
+* `marts.dim_region`
+* `marts.dim_date`
+
+The dashboard includes three pages:
+
+1. **Retail Sales & Profitability Dashboard**
+
+   * KPI cards for total sales, profit, profit margin, quantity, average discount, and average shipping days
+   * Sales and profit by product category
+   * Sales and profit by region
+   * Monthly sales trend
+
+2. **Customer & Product Analysis**
+
+   * Profit by customer segment
+   * Profit margin by customer segment
+   * Top 10 customers by sales
+   * Top loss-making products
+
+3. **Shipping & Operations Analysis**
+
+   * Orders by ship mode
+   * Average shipping days by ship mode
+   * Sales by ship mode
+   * Profit by ship mode
+
+Dashboard documentation:
+
+* `dashboard/README.md`
+
+### Dashboard Screenshots
+
+#### Retail Sales & Profitability Dashboard
+
+![Retail Sales & Profitability Dashboard](images/dashboard_overview.png)
+
+#### Customer & Product Analysis
+
+![Customer & Product Analysis](images/customer_product_analysis.png)
+
+#### Shipping & Operations Analysis
+
+![Shipping & Operations Analysis](images/shipping_operations_analysis.png)
+
+> Note: The `.pbix` file is stored locally in the `dashboard/` folder but is not committed to GitHub because Power BI files can be large. Dashboard screenshots are included for portfolio review.
+
+---
+
 ## SQL Files
 
 | File                                   | Purpose                                   |
@@ -418,12 +475,13 @@ Completed:
 * Converted SQL transformations into dbt models
 * Added dbt tests
 * Generated dbt documentation
+* Power BI dashboard with three report pages
+* Dashboard screenshots added for Github portfolio review
 
 Planned next steps:
 
 * Add orchestration using Prefect or Airflow
-* Build Power BI dashboard
-* Add dashboard screenshots to GitHub
+
 
 ---
 
