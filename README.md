@@ -65,11 +65,8 @@ The business needs a reliable data warehouse that can support analysis of:
 * VS Code
 * dbt Core
 * dbt-postgres
-
-Planned next tools:
-
-* Prefect or Airflow
 * Power BI
+* Prefect
 
 ---
 
@@ -187,6 +184,34 @@ All dbt tests passed successfully:
 - 0 errors
 
 ---
+
+## Orchestration with Prefect
+
+Prefect was added to orchestrate the full ELT pipeline as a repeatable workflow.
+
+The orchestration file is located at:
+
+- `orchestration/retail_pipeline_flow.py`
+
+The Prefect flow runs the following tasks:
+
+1. Ingest raw data from AWS S3 into PostgreSQL
+2. Run dbt models to build staging and mart tables
+3. Run dbt tests to validate the transformed data
+
+The full pipeline can be run with:
+
+```powershell
+python orchestration/retail_pipeline_flow.py
+```
+Final orchestration result:
+
+- Prefect flow completed successfully
+- dbt rest passed : 28
+- dbt failures : 0
+- dbt errors : 0
+
+--- 
 
 ## Star Schema Design
 
@@ -477,10 +502,7 @@ Completed:
 * Generated dbt documentation
 * Power BI dashboard with three report pages
 * Dashboard screenshots added for Github portfolio review
-
-Planned next steps:
-
-* Add orchestration using Prefect or Airflow
+* Added orchestration using Prefect
 
 
 ---
